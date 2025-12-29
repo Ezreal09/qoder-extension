@@ -1,6 +1,6 @@
 import { ActionPanel, Action, List, Icon, open, closeMainWindow, showToast, Toast } from "@raycast/api";
 import { useState, useEffect } from "react";
-import { homedir } from "os";
+import { homedir, platform } from "os";
 import { readFile } from "fs/promises";
 import { join } from "path";
 
@@ -19,15 +19,26 @@ export default function Command() {
 
   async function loadRecentProjects() {
     try {
-      const qoderStoragePath = join(
-        homedir(),
-        "Library",
-        "Application Support",
-        "Qoder",
-        "User",
-        "globalStorage",
-        "storage.json",
-      );
+      // Cross-platform path handling
+      let qoderStoragePath: string;
+      const currentPlatform = platform();
+
+      if (currentPlatform === "win32") {
+        // Windows path: %APPDATA%\Qoder\User\globalStorage\storage.json
+        const appData = process.env.APPDATA || join(homedir(), "AppData", "Roaming");
+        qoderStoragePath = join(appData, "Qoder", "User", "globalStorage", "storage.json");
+      } else {
+        // macOS/Linux path: ~/Library/Application Support/Qoder/User/globalStorage/storage.json
+        qoderStoragePath = join(
+          homedir(),
+          "Library",
+          "Application Support",
+          "Qoder",
+          "User",
+          "globalStorage",
+          "storage.json",
+        );
+      }
       const data = await readFile(qoderStoragePath, "utf-8");
       const storage = JSON.parse(data);
 
