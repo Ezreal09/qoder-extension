@@ -31,6 +31,28 @@
       "subtitle": "Qoder",
       "description": "Open current Finder selection in Qoder",
       "mode": "no-view"
+    },
+    {
+      "name": "install-extension",
+      "title": "Install Extension",
+      "subtitle": "Qoder",
+      "description": "Install a Qoder extension by ID",
+      "mode": "view",
+      "arguments": [
+        {
+          "name": "extensionId",
+          "placeholder": "Extension ID",
+          "type": "text",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "show-installed-extensions",
+      "title": "Show Installed Extensions",
+      "subtitle": "Qoder",
+      "description": "View all installed Qoder extensions",
+      "mode": "view"
     }
   ],
   "dependencies": {
@@ -50,7 +72,7 @@
     "dev": "ray develop",
     "fix-lint": "ray lint --fix",
     "lint": "ray lint",
-    "prepublishOnly": "echo \"\\n\\nIt seems like you are trying to publish the Raycast extension to npm.\\n\\nIf you did intend to publish it to npm, remove the \\`prepublishOnly\\` script and rerun \\`npm publish\\` again.\\nIf you wanted to publish it to the Raycast Store instead, use \\`npm run publish\\` instead.\\n\\n\" && exit 1",
+    "prepublishOnly": "echo \"\n\nIt seems like you are trying to publish the Raycast extension to npm.\n\nIf you did intend to publish it to npm, remove the \\`prepublishOnly\\` script and rerun \\`npm publish\\` again.\nIf you wanted to publish it to the Raycast Store instead, use \\`npm run publish\\` instead.\n\n\" && exit 1",
     "publish": "npx @raycast/api@latest publish"
   }
 }
