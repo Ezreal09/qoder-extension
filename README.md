@@ -13,6 +13,8 @@ A Raycast extension that provides quick access to Qoder AI Editor with convenien
 - **Open New Window** - Launch a new Qoder window instantly
 - **Search Recent Projects** - Quickly search and open your recently accessed Qoder projects
 - **Open in Qoder** - Open selected files or folders from Finder directly in Qoder
+- **Install Extension** - Install Qoder extensions by ID from the marketplace
+- **Show Installed Extensions** - View and manage all installed Qoder extensions
 
 ## Installation
 
@@ -34,6 +36,15 @@ Displays a searchable list of your recent Qoder projects with actions to:
 
 ### Open in Qoder
 Opens the currently selected file or folder in Finder with Qoder.
+
+### Install Extension
+Install a Qoder extension by entering its ID (e.g., `ms-python.python`). The extension will be installed directly in Qoder.
+
+### Show Installed Extensions
+Displays a searchable list of all installed Qoder extensions with actions to:
+- Open extension folder
+- Copy extension ID
+- Copy extension name
 
 ## Requirements
 
