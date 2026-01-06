@@ -1,6 +1,6 @@
 import { ActionPanel, Action, List, Icon, showToast, Toast, open, closeMainWindow } from "@raycast/api";
 import { useState, useEffect } from "react";
-import { homedir, platform } from "os";
+import { homedir } from "os";
 import { readdir, readFile } from "fs/promises";
 import { join } from "path";
 
@@ -23,18 +23,7 @@ export default function Command() {
 
   async function loadInstalledExtensions() {
     try {
-      // Cross-platform path handling
-      let extensionsPath: string;
-      const currentPlatform = platform();
-
-      if (currentPlatform === "win32") {
-        // Windows path: %USERPROFILE%\.qoder\extensions
-        const userProfile = process.env.USERPROFILE || homedir();
-        extensionsPath = join(userProfile, ".qoder", "extensions");
-      } else {
-        // macOS/Linux path: ~/.qoder/extensions
-        extensionsPath = join(homedir(), ".qoder", "extensions");
-      }
+      const extensionsPath = join(homedir(), ".qoder", "extensions");
 
       const extensionDirs = await readdir(extensionsPath, { withFileTypes: true });
       const extensionList: Extension[] = [];
@@ -84,15 +73,7 @@ export default function Command() {
 
   async function openExtensionFolder(extensionId: string) {
     try {
-      const currentPlatform = platform();
-      let extensionsPath: string;
-
-      if (currentPlatform === "win32") {
-        const userProfile = process.env.USERPROFILE || homedir();
-        extensionsPath = join(userProfile, ".qoder", "extensions", extensionId);
-      } else {
-        extensionsPath = join(homedir(), ".qoder", "extensions", extensionId);
-      }
+      const extensionsPath = join(homedir(), ".qoder", "extensions", extensionId);
 
       await closeMainWindow();
       await open(extensionsPath);

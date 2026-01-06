@@ -6,8 +6,7 @@
   "icon": "extension-icon.png",
   "author": "ezreal09",
   "platforms": [
-    "macOS",
-    "Windows"
+    "macOS"
   ],
   "license": "MIT",
   "commands": [
@@ -37,15 +36,7 @@
       "title": "Install Extension",
       "subtitle": "Qoder",
       "description": "Install a Qoder extension by ID",
-      "mode": "view",
-      "arguments": [
-        {
-          "name": "extensionId",
-          "placeholder": "Extension ID",
-          "type": "text",
-          "required": false
-        }
-      ]
+      "mode": "view"
     },
     {
       "name": "show-installed-extensions",

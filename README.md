@@ -48,7 +48,7 @@ Displays a searchable list of all installed Qoder extensions with actions to:
 
 ## Requirements
 
-- macOS or Windows
+- macOS
 - [Raycast](https://raycast.com)
 - Qoder AI Editor installed with bundle ID `com.qoder.ide`
 
