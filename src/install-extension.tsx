@@ -121,9 +121,9 @@ function GalleryExtensionListItem(props: {
     return item?.value;
   };
   const installCount = getInstallCount();
-  const newstVersion = e.versions && e.versions.length > 0 ? e.versions[0] : undefined;
-  const version = newstVersion ? newstVersion.version : undefined;
-  const lastUpdated = newstVersion ? new Date(newstVersion.lastUpdated) : undefined;
+  const newestVersion = e.versions && e.versions.length > 0 ? e.versions[0] : undefined;
+  const version = newestVersion ? newestVersion.version : undefined;
+  const lastUpdated = newestVersion ? new Date(newestVersion.lastUpdated) : undefined;
   const installedIDs = ie ? ie.map((ext) => ext.id.toLocaleLowerCase()) : [];
   const alreadyInstalled = installedIDs.includes(getFullExtensionID(e).toLocaleLowerCase());
   return (

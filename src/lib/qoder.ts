@@ -154,9 +154,9 @@ async function getPackageJSONInfo(filename: string): Promise<PackageJSONInfo | u
 
 export async function getLocalExtensions(): Promise<Extension[] | undefined> {
   const extensionsRootFolder = path.join(os.homedir(), ".qoder/extensions");
-  const extensionsManifrestFilename = path.join(extensionsRootFolder, "extensions.json");
-  if (await fileExists(extensionsManifrestFilename)) {
-    const data = await afs.readFile(extensionsManifrestFilename, {
+  const extensionsManifestFilename = path.join(extensionsRootFolder, "extensions.json");
+  if (await fileExists(extensionsManifestFilename)) {
+    const data = await afs.readFile(extensionsManifestFilename, {
       encoding: "utf-8",
     });
     const extensions = JSON.parse(data) as ExtensionMetaRoot[] | undefined;
