@@ -28,7 +28,7 @@ export default function Command() {
   async function loadRecentProjects() {
     try {
       const dbPath = join(homedir(), "Library", "Application Support", "Qoder", "User", "globalStorage", "state.vscdb");
-      
+
       // Use execFile instead of execSync for better security (no shell interpretation)
       const { stdout } = await execFileAsync("/usr/bin/sqlite3", [
         dbPath,
@@ -67,7 +67,8 @@ export default function Command() {
       await showToast({
         style: Toast.Style.Failure,
         title: "Failed to load recent projects",
-        message: error instanceof Error ? error.message : "Make sure Qoder is installed and you have opened some projects",
+        message:
+          error instanceof Error ? error.message : "Make sure Qoder is installed and you have opened some projects",
       });
     } finally {
       setIsLoading(false);
