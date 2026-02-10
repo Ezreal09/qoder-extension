@@ -24,15 +24,7 @@ export default function Command() {
 
   async function loadRecentProjects() {
     try {
-      const dbPath = join(
-        homedir(),
-        "Library",
-        "Application Support",
-        "Qoder",
-        "User",
-        "globalStorage",
-        "state.vscdb",
-      );
+      const dbPath = join(homedir(), "Library", "Application Support", "Qoder", "User", "globalStorage", "state.vscdb");
       const raw = execSync(
         `sqlite3 "${dbPath}" "SELECT value FROM ItemTable WHERE key='history.recentlyOpenedPathsList';"`,
         { encoding: "utf-8" },
